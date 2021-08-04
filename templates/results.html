@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <title>One Fit</title>
+    <link rel="icon" href="{% static 'image/sunrise logo FINAL.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+    <style>
+        body{
+            background: #bdc3c7;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .btn{
+            background-color: rgb(255, 94, 0);
+            color: black;
+            border-color: rgb(255, 94, 0);
+            border-radius: 0;
+        }
+        a{
+            color: #ffffff;
+            padding: 10px;
+        }
+        a:hover{
+            color: rgb(255, 94, 0);
+            text-decoration: none;
+        }
+        .navbar {
+            background-color: #2c3e5000;
+        }
+        .btn:hover{
+            background-color: rgb(255, 94, 0);
+            color: black;
+            border-color: rgb(255, 94, 0);
+            border-radius: 0;
+        }
+        th{
+            color: rgb(255, 94, 0);
+            text-shadow: 2px 2px #2c3e50;
+            font-size: x-large;
+        }
+        td{
+            color: aliceblue;
+            text-shadow: 2px 2px #2c3e50;
+            font-size: larger;
+        }
+        h1{
+            color: rgb(255, 94, 0);
+            text-shadow: 2px 2px #2c3e50;
+            font-size: x-large;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar  justify-content-between">
+    <a href="" class="logo"><img src="{% static 'image/Cranberry default logo Sunrise1.png' %}" alt="logo"style="width: 200px;"></a>
+        <a href="{% url 'home' %}" class="active " ><em>Home</em></a>
+        <form class="form-inline" method="POST" accept="{% url 'results' %}">
+            {% csrf_token %}
+          <input class="form-control mr-sm-2" type="search" placeholder="User Name" aria-label="Search" name = 'username'>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        
+    </nav>
+    
+    {% if n %}
+        <em style="text-align: center;"><h1>Sorry, Your ID is not Found.</h1></em>
+        <em><hr></em>
+    {% endif %}
+    
+    {% if user_det %}
+    <div class="table-responsive">
+        <table class="table table-bordered" style="overflow:auto;">
+            <thead>
+            <tr>
+                <th scope="col"><em>Rank</em></th>
+                <th scope="col"><em>ID</em></th>
+                <th scope="col"><em>User Name</em></th>
+                <th scope="col"><em># of days</em></th>
+                <th scope="col"><em>Total calories burned</em></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><em>{{user.rank}}</em></td>
+                    <td>{{user.user_id}}</td>
+                    <td>{{user.user_name}}</td>
+                    <td>{{user.number_of_days}}</td>
+                    <td>{{user.total_calories_burned}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        
+        <em><hr></em>
+    {% endif %}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <em style="text-align: center;"><h1>To 10 Place's</h1></em>
+            <thead>
+              <tr>
+                <th scope="col"><em>Rank</em></th>
+                <th scope="col"><em>ID</em></th>
+                <th scope="col"><em>User Name</em></th>
+                <th scope="col"><em># of days</em></th>
+                <th scope="col"><em>Total calories burned</em></th>
+              </tr>
+            </thead>
+            {% for i in top_10_place %}
+            <tbody>
+                <tr>
+                    <td><em>{{i.rank}}</em></td>
+                    <td>{{i.user_id}}</td>
+                    <td><em>{{i.user_name}}</em></td>
+                    <td>{{i.number_of_days}}</td>
+                    <td>{{i.total_calories_burned}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+            
+          </table>
+    </div>    
+</body>
+  <!-- jQuery -->
+  <script src="{% static 'js/jquery-2.1.0.min.js' %}"></script>
+
+  <!-- Bootstrap -->
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Plugins -->
+<script src="{% static 'js/scrollreveal.min.js' %}"></script>
+<script src="{% static 'js/waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'js/imgfix.min.js' %}"></script> 
+<script src="{% static 'js/mixitup.js' %}"></script> 
+<script src="{% static 'js/accordions.js' %}"></script>
+
+<!-- Global Init -->
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
