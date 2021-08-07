@@ -5,14 +5,14 @@ def home(request):
     return render(request, 'index.html')
 
 def result(request):
-    list_of_peoples = onefitTabel.objects.all().order_by('-number_of_days', '-total_calories_burned')
+    list_of_peoples = onefitTabel.objects.all().order_by('-number_of_days')
     count, n, user_det, search, user = 1, 0, 0, 0, None
     for user in list_of_peoples:
-        if(int(user.total_calories_burned) > 0):
+        if(int(user.total_calories_burned) >= 0):
             user.rank = count
             user.save()
             count += 1
-    top_10_place = onefitTabel.objects.all().order_by('rank')[0:11]
+    top_10_place = onefitTabel.objects.all().order_by('rank')
    
     if request.method == "POST":
         l = onefitTabel.objects.filter(user_id = request.POST['username'])

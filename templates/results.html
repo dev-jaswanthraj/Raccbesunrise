@@ -92,7 +92,6 @@
                                 <th scope="col">OneFit ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Number of days</th>
-                                <th scope="col">Total calories burned</th>
                               </tr>
                             </thead>
                                 <tbody>
@@ -101,7 +100,6 @@
                                     <td>{{user.user_id}}</td>
                                     <td>{{user.user_name}}</td>
                                     <td>{{user.number_of_days}}</td>
-                                    <td>{{user.total_calories_burned}}</td>
                                 </tr>
                                 </tbody>
                           </table>
@@ -116,7 +114,6 @@
                                 <th scope="col">OneFit ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Number of days</th>
-                                <th scope="col">Total calories burned</th>
                               </tr>
                             </thead>
                             {% for i in top_10_place %}
@@ -126,7 +123,6 @@
                                     <td>{{i.user_id}}</td>
                                     <td>{{i.user_name}}</td>
                                     <td>{{i.number_of_days}}</td>
-                                    <td>{{i.total_calories_burned}}</td>
                                 </tr>
                                 </tbody>
                             {% endfor %}
