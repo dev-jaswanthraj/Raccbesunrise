@@ -20,10 +20,14 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         
+                        <a href="#home" class="logo" style="left: 0%;">
+                            <img src="{% static 'image/Cranberry default logo Sunrise1.png' %}" alt="logo"style="width: 200px;">
+                        </a>
                         
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#features">About</a></li>
+                            <li class="scroll-to-section"><a href="#trainers">OurTeam</a></li>
                             <li></li>
                         </ul>        
                         <a class='menu-trigger'>
@@ -45,6 +49,7 @@
             <div class="caption">
                 <h6>work harder, get stronger</h6>
                 <h2>ONE <em>FIT</em></h2>
+                <img src="{% static 'image/sunrise logo FINAL.png' %}" alt="logo"style="width: 150px; height:150px; padding:0;">
                 <div class="main-button scroll-to-section">
                     <a href="{% url 'results' %}">See Today Result</a>
                 </div>
@@ -69,13 +74,83 @@
             </div>
         </div>
     </section>
+
+    <section class="section trainers" id="trainers">
+        <div class="container">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Our <em>Team</em></h2>
+                        <img src="assets/images/line-dec.png" alt="">
+                        <p>ANYTIME * ANYTHNING * ANYWHERE</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="{% static 'image/santhosh.jpg' %}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span>President</span>
+                                <h4>Rtr Santhosh</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="{% static 'image/keerthana.jpg' %}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span>Secretary</span>
+                                <h4>Rtr Keerthana</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="{% static 'image/jnithin.jpg' %}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span>IPP</span>
+                                <h4>Rtr Nithin</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="top: 10px;">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="{% static 'image/jaswanth.jpg' %}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span>Event Chairman</span>
+                                <h4>Rtr JaswanthRaj</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="top: 10px;">
+                        <div class="trainer-item" >
+                            <div class="image-thumb">
+                                <img src="{% static 'image/amrish.jpg' %}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span>Event Secretary</span>
+                                <h4>Rtr Amrish Krishnan</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+    </section>
     
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright &copy; 2021 Rotaract Coimbatore Sunrise 
-                    - Designed by RaC JaswanthRaj R
+                    - Designed by <strong>Rtr JaswanthRaj</strong>
                 </div>
             </div>
         </div>

@@ -5,9 +5,9 @@ from django.dispatch import receiver
 class onefitTabel(models.Model):
     user_id = models.CharField(unique= True, max_length=200)
     user_name = models.CharField(max_length=200, null = True, blank= True)
-    total_calories_burned = models.CharField(default= '0', max_length= 4)
-    number_of_days = models.CharField(default= '0', max_length = 2)
-    rank = models.CharField(default="-", max_length = 3)
+    total_calories_burned = models.IntegerField(default=0, blank=True, null=True)
+    number_of_days = models.IntegerField(default=0, blank=True, null=True)
+    rank = models.CharField(default= None , max_length = 6)
 
     def __str__(self):
         return self.user_id
